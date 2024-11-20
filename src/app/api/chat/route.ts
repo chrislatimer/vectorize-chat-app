@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   let context = null; // Initialize with a default value
 
   if (messages.length > 0) {
-    context = await retrieveData(String(messages[messages.length - 1]));
+    context = await retrieveData(String(messages[messages.length - 1].content));
   } else {
     console.log('No messages available, skipping retrieveData.');
   }
