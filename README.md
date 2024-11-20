@@ -20,9 +20,11 @@ This repository is a simple integration for using the Vectorize API with OpenAI.
 
 1. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+Note that this repo uses new features in React 19 which is currently available only as a release candidate as of the time of this writing. Once `react:19.0.0` is officially released we will be able to remove the `--force` flag.
+
+```bash
+npm install --force
+```
 
 2. Start the development server:
    ```bash

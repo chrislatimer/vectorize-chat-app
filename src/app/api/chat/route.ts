@@ -15,7 +15,8 @@ export async function POST(req: Request) {
   // Override the last message to include the context
   if (messages.length > 0 && context) {
     messages[messages.length - 1].content = `
-      Use only the following context to inform your response:
+      Based on the current message, decide whether to use the following context or the message history to respond.
+      
       Context: ${JSON.stringify(context) || 'No additional context provided.'}
 
       Original Message: ${messages[messages.length - 1].content}
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
 
   const result = await streamText({
     model: openai('gpt-4'),
-    system: 'You are a helpful assistant.',
+    system: 'You are a helpful assistant. You always generate your responses as correctly structured, valid markdown.',
     messages,
   });
 
