@@ -37,14 +37,16 @@ export async function POST(req: Request) {
 const retrieveData = async (question: string) => {
   const token = process.env.VECTORIZE_TOKEN;
 
-  const pipelineRetrievalUrl = ''; // Set this to the retrieval endpoint for your pipeline
+  const pipelineRetrievalUrl = process.env.retrievalUrl;
 
   if (!token) {
     throw new Error('VECTORIZE_TOKEN is not set in the environment variables. Please add it to your .env file.');
   }
 
   if (!pipelineRetrievalUrl) {
-    throw new Error('pipelineRetrievalUrl is not set. Please define the URL in routes.ts before calling retrieveData.');
+    throw new Error(
+      'pipelineRetrievalUrl is not set. Please define the URL in the environment settings (e.g. in the file .env.development) before calling retrieveData.'
+    );
   }
 
   const response = await fetch(pipelineRetrievalUrl, {
