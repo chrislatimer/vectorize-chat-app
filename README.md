@@ -1,6 +1,7 @@
 # Vectorize API Integration
 
-This repository is a simple integration for using the Vectorize API with OpenAI.
+This repository is a simple integration for using the Vectorize API with OpenAI. It is meant to give you a good starting point for creating a conversational AI. Depending on your use cases you should customize it based on
+your requirements.
 
 ## Setup
 
@@ -11,19 +12,17 @@ This repository is a simple integration for using the Vectorize API with OpenAI.
    - `VECTORIZE_TOKEN`: Your Vectorize API token.
 
 2. **Configure Retrieval Endpoint**  
-   Set your Vectorize retrieval endpoint in `routes.ts`:
+   Set your Vectorize retrieval endpoint in `.env.development`:
    ```typescript
-   const pipelineRetrievalUrl = 'https://client.app.vectorize.io/api/gateways/service/.../retrieve';
+   retrievalUrl = 'https://client.app.vectorize.io/api/gateways/service/.../retrieve';
    ```
 
 ## Installation
 
 1. Install dependencies:
 
-Note that this repo uses new features in React 19 which is currently available only as a release candidate as of the time of this writing. Once `react:19.0.0` is officially released we will be able to remove the `--force` flag.
-
 ```bash
-npm install --force
+npm install
 ```
 
 2. Start the development server:
